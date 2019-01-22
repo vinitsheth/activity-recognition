@@ -52,8 +52,8 @@ IMU_file = dir(txtpattern_IMU);
 EMG_spoon_data = csvread([EMG_file.folder,'/',EMG_file.name]);
 IMU_spoon_data = csvread([IMU_file.folder,'/',IMU_file.name]);
 
-EMG_fork_processed_data = [zeros(size(EMG_fork_data,1),1) EMG_fork_data(:,2:end) zeros(size(EMG_fork_data,1),1)];
-IMU_fork_processed_data = [zeros(size(IMU_fork_data,1),1) IMU_fork_data(:,2:end) zeros(size(IMU_fork_data,1),1)];
+EMG_fork_processed_data = [zeros(size(EMG_fork_data,1),1) EMG_fork_data zeros(size(EMG_fork_data,1),1)];
+IMU_fork_processed_data = [zeros(size(IMU_fork_data,1),1) IMU_fork_data zeros(size(IMU_fork_data,1),1)];
 EMG_fork_processed_data(:,1) = user;
 IMU_fork_processed_data(:,1) = user;
 for i= 1:length(ground_truth_fork_data)
@@ -61,8 +61,8 @@ for i= 1:length(ground_truth_fork_data)
     IMU_fork_processed_data(ground_truth_fork_data(i,1) :ground_truth_fork_data(i,2) , end ) = 1 ;
 end
 
-EMG_spoon_processed_data = [zeros(size(EMG_spoon_data,1),1) EMG_spoon_data(:,2:end) zeros(size(EMG_spoon_data,1),1)];
-IMU_spoon_processed_data = [zeros(size(IMU_spoon_data,1),1) IMU_spoon_data(:,2:end) zeros(size(IMU_spoon_data,1),1)];
+EMG_spoon_processed_data = [zeros(size(EMG_spoon_data,1),1) EMG_spoon_data zeros(size(EMG_spoon_data,1),1)];
+IMU_spoon_processed_data = [zeros(size(IMU_spoon_data,1),1) IMU_spoon_data zeros(size(IMU_spoon_data,1),1)];
 EMG_spoon_processed_data(:,1) = user;
 IMU_spoon_processed_data(:,1) = user;
 
