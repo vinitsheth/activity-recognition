@@ -1,0 +1,20 @@
+
+% dataname = 'test/forkEMG.txt'
+% reference = 'test/reference.txt'
+% data = csvread(dataname)
+% ref = csvread(reference)
+
+% function p(user)
+% ground_truth_files = dir('groundTruth/user'+user);
+% for i = 1:length(ground_truth_files)
+%     ground_truth_files(i).name
+% end
+%z
+
+
+user = 9;
+
+path = strcat('groundTruth/user',num2str(user),'/fork');
+txtpattern = fullfile(path, '*.txt');
+
+dirinfo = dir()
