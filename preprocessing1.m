@@ -35,18 +35,19 @@ IMU_fork_processed_data(:,1) = user;
 first_frame = ground_truth_fork_data(1,1);
 first_EMG_time_stamp = EMG_fork_data(1,1) ;
 
-
+first_IMU_time_stamp = IMU_fork_data(1,1);
 
 
 
 for i= 1:length(ground_truth_fork_data)
-    start_time = compute_last_time(ground_truth_fork_data(i,1),first_frame,first_EMG_time_stamp);
-    end_time = compute_last_time(ground_truth_fork_data(i,2),first_frame,first_EMG_time_stamp);
+    start_time_EMG = compute_last_time(ground_truth_fork_data(i,1),first_frame,first_EMG_time_stamp);
+    end_time_EMG = compute_last_time(ground_truth_fork_data(i,2),first_frame,first_EMG_time_stamp);
     
-    
+    start_time_IMU = compute_last_time(ground_truth_fork_data(i,1),first_frame,first_IMU_time_stamp);
+    end_time_IMU = compute_last_time(ground_truth_fork_data(i,2),first_frame,first_IMU_time_stamp);
     j=1;
     while (j<= length(EMG_fork_data) ) 
-        if (EMG_fork_data(j,1) >= start_time ) && (EMG_fork_data(j,1) <= end_time )
+        if (EMG_fork_data(j,1) >= start_time_EMG ) && (EMG_fork_data(j,1) <= end_time_EMG )
         
         EMG_fork_processed_data(j,end) = 1;
         end
@@ -56,7 +57,7 @@ for i= 1:length(ground_truth_fork_data)
     
     j=1;
     while (j<= length(IMU_fork_data) ) 
-        if (IMU_fork_data(j,1) >= start_time ) && (IMU_fork_data(j,1) <= end_time )
+        if (IMU_fork_data(j,1) >= start_time_IMU ) && (IMU_fork_data(j,1) <= end_time_IMU )
         
         IMU_fork_processed_data(j,end) = 1;
         end
