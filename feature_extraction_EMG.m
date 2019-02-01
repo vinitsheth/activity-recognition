@@ -20,9 +20,9 @@
 % 
 % for i = 1 : sample_size : length(IMU_fork_eating)
 %     if i+sample_size <= length(IMU_fork_eating)
-%              m = mean(IMU_fork_eating(i:i+sample_size,feature));
+%              m = mean(abs(fft(IMU_fork_eating(i:i+sample_size,feature));
 %     else
-%         m = mean(IMU_fork_eating(i:end,feature));
+%         m = mean(abs(fft(IMU_fork_eating(i:end,feature));
 %     end
 %     mean_orientation_x_eating = [mean_orientation_x_eating ; m];
 %     plot_eating_x = [plot_eating_x; j];
@@ -34,9 +34,9 @@
 % j=1;
 % for i = 1 : sample_size : length(IMU_fork_non_eating)
 %     if i+sample_size <= length(IMU_fork_non_eating)
-%              m = mean(IMU_fork_non_eating(i:i+sample_size,feature));
+%              m = mean(abs(fft(IMU_fork_non_eating(i:i+sample_size,feature));
 %     else
-%         m = mean(IMU_fork_non_eating(i:end,feature));
+%         m = mean(abs(fft(IMU_fork_non_eating(i:end,feature));
 %     end
 %     mean_orientation_x_non_eating = [mean_orientation_x_non_eating ; m];
 %     plot_non_eating_x = [plot_non_eating_x; j];
@@ -66,9 +66,9 @@ IMU_fork_sampled_non_eating = [];
 
 for i = 1 : sample_eating : length(EMG_fork_eating)
     if i+sample_eating <= length(EMG_fork_eating)
-             m = rms(EMG_fork_eating(i:i+sample_eating,:));
+             m = mean(abs(fft(EMG_fork_eating(i:i+sample_eating,:))));
     else
-        m = rms(EMG_fork_eating(i:end,:));
+        m = mean(abs(fft(EMG_fork_eating(i:end,:))));
     end
    IMU_fork_sampled_eating = [IMU_fork_sampled_eating ; m];
 
@@ -78,9 +78,9 @@ end
 
 for i = 1 : sample_non_eating : length(EMG_fork_non_eating)
     if i+sample_non_eating <= length(EMG_fork_non_eating)
-             m = rms(EMG_fork_non_eating(i:i+sample_non_eating,:));
+             m = mean(abs(fft(EMG_fork_non_eating(i:i+sample_non_eating,:))));
     else
-        m = rms(EMG_fork_non_eating(i:end,:));
+        m = mean(abs(fft(EMG_fork_non_eating(i:end,:))));
     end
    IMU_fork_sampled_non_eating = [IMU_fork_sampled_non_eating ; m];
   
