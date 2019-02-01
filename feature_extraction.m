@@ -55,7 +55,7 @@
 % plot(plot_eating_x,mean_orientation_x_eating)
 
 
-number_of_samples = 1000;
+number_of_samples = 200;
 sample_eating = floor(length(IMU_fork_eating)/number_of_samples);
 sample_non_eating = floor(length(IMU_fork_non_eating)/number_of_samples);
 
@@ -82,7 +82,6 @@ for i = 1 : sample_non_eating : length(IMU_fork_non_eating)
         m = mean(IMU_fork_non_eating(i:end,:));
     end
    IMU_fork_sampled_non_eating = [IMU_fork_sampled_non_eating ; m];
-
   
 end
 

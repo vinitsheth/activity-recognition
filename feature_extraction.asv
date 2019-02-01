@@ -55,11 +55,11 @@
 % plot(plot_eating_x,mean_orientation_x_eating)
 
 
-number_of_samples = 10000;
-sample_eating = int16(length(IMU_fork_eating)/number_of_samples);
-sample_non_eating = int16(length(IMU_fork_non_eating)/number_of_samples);
+number_of_samples = 2000;
+sample_eating = floor(length(IMU_fork_eating)/number_of_samples);
+sample_non_eating = floor(length(IMU_fork_non_eating)/number_of_samples);
 
-j=1;
+
 IMU_fork_sampled_eating = [];
 IMU_fork_sampled_non_eating = [];
 
@@ -70,18 +70,18 @@ for i = 1 : sample_eating : length(IMU_fork_eating)
         m = mean(IMU_fork_eating(i:end,:));
     end
    IMU_fork_sampled_eating = [IMU_fork_sampled_eating ; m];
-    j = j+1;
-  
-end
-j=1;
 
-for i = 1 : sample_eating : length(IMU_fork_eating)
-    if i+sample_eating <= length(IMU_fork_eating)
-             m = mean(IMU_fork_eating(i:i+sample_eating,:));
-    else
-        m = mean(IMU_fork_eating(i:end,:));
-    end
-   IMU_fork_sampled_eating = [IMU_fork_sampled_eating ; m];
-    j = j+1;
   
 end
+
+
+for i = 1 : sample_non_eating : length(IMU_fork_non_eating)
+    if i+sample_non_eating <= length(IMU_fork_non_eating)
+             m = mean(IMU_fork_non_eating(i:i+sample_non_eating,:));
+    else
+        m = mean(IMU_fork_non_eating(i:end,:));
+    end
+   IMU_fork_sampled_non_eating = [IMU_fork_sampled_non_eating ; m];
+  
+end
+
