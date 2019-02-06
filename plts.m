@@ -1,6 +1,10 @@
-%plots
+% Phase2
 
-% IMU mean
+%Code for reference
+
+% Code used to plot feature extraction methods for phase 2.
+
+
 figure;
 hold on
 xlabel("samples")
