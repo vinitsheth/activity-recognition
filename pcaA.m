@@ -25,7 +25,7 @@
 
 hold on
 
-xlabel("PCA1")
+xlabel("PCA3")
 ylabel("PCA4")
 title("Comarision")
 
