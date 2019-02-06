@@ -1,5 +1,12 @@
-%Mean
-%IMU 
+
+%Phase 1
+%Code for reference
+
+% Preprocessing to generate IMU_mean_eating and IMU_mean_non_eating and
+% saved in processed-data folder.
+
+
+
 feature = 7;
 IMU_mean_eating = [];
 IMU_mean_non_eating = [];
