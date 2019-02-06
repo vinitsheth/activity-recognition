@@ -61,16 +61,16 @@ sample_eating = floor(length(IMU_fork_eating)/number_of_samples);
 sample_non_eating = floor(length(IMU_fork_non_eating)/number_of_samples);
 
 
-IMU_fork_sampled_eating = [];
-IMU_fork_sampled_non_eating = [];
+IMU_fork_sampled_eating_200 = [];
+IMU_fork_sampled_non_eating_200 = [];
 
 for i = 1 : sample_eating : length(IMU_fork_eating)
     if i+sample_eating <= length(IMU_fork_eating)
-             m = rms(IMU_fork_eating(i:i+sample_eating,:));
+             m = mean(IMU_fork_eating(i:i+sample_eating,:));
     else
-        m = rms(IMU_fork_eating(i:end,:));
+        m = mean(IMU_fork_eating(i:end,:));
     end
-   IMU_fork_sampled_eating = [IMU_fork_sampled_eating ; m];
+   IMU_fork_sampled_eating_200 = [IMU_fork_sampled_eating_200 ; m];
 
   
 end
@@ -78,11 +78,11 @@ end
 
 for i = 1 : sample_non_eating : length(IMU_fork_non_eating)
     if i+sample_non_eating <= length(IMU_fork_non_eating)
-             m = rms(IMU_fork_non_eating(i:i+sample_non_eating,:));
+             m = mean(IMU_fork_non_eating(i:i+sample_non_eating,:));
     else
-        m = rms(IMU_fork_non_eating(i:end,:));
+        m = mean(IMU_fork_non_eating(i:end,:));
     end
-   IMU_fork_sampled_non_eating = [IMU_fork_sampled_non_eating ; m];
+   IMU_fork_sampled_non_eating_200 = [IMU_fork_sampled_non_eating_200 ; m];
   
 end
 
