@@ -6,7 +6,7 @@
 % 
 % full_feature_matrix = [IMU_EMG_eating ; IMU_EMG_non_eating];
 
-%[coeff,score,latent,tsquared,explained,mu] = pca(full_feature_matrix(:,1:end-1));
+% [coeff,score,latent,tsquared,explained,mu] = pca(full_feature_matrix(:,1:end-1));
 
 % reconstructed_matrix = full_feature_matrix(:,1:end-1) * coeff(:,1:4);
 
@@ -22,10 +22,23 @@
 % plot(1:201,reconstructed_matrix(202:end,pc))
 % legend('Eating','Not Eating')
 % hold off
-hold on
-title('Analysis of PCA')
-ylabel("Percentage Variance")
-xlabel("Principal Component")
-bar(1:18,explained)
 
+hold on
+
+xlabel("PCA1")
+ylabel("PCA4")
+title("Comarision")
+
+scatter(reconstructed_matrix(1:201,2),reconstructed_matrix(1:201,4))
+scatter(reconstructed_matrix(202:end,2),reconstructed_matrix(202:end,4))
+legend('Eating','Not Eating')
 hold off
+
+
+% hold on
+% title('Analysis of PCA')
+% ylabel("Percentage Variance")
+% xlabel("Principal Component")
+% bar(1:18,explained)
+% 
+% hold off
