@@ -61,8 +61,8 @@ EMG_fork_eating_user_sampled = EMG_fork_eating_user_sampled(1:number_of_samples,
 EMG_fork_non_eating_user_sampled = EMG_fork_non_eating_user_sampled(1:number_of_samples,:);
 IMU_fork_non_eating_user_sampled = IMU_fork_non_eating_user_sampled(1:number_of_samples,:);
 
-eating = [EMG_fork_eating_user_sampled(3:10) IMU_fork_eating_user(3:12)];
-not_eating = [EMG_fork_non_eating_user_sampled(3:10) IMU_fork_non_eating_user_sampled(3:12) ];
+eating = [EMG_fork_eating_user_sampled(:,3:10) IMU_fork_eating_user(:,3:12)];
+not_eating = [EMG_fork_non_eating_user_sampled(:,3:10) IMU_fork_non_eating_user_sampled(:,3:12) ];
  
 save(['processed-data/Assign2/' num2str(user) '_eating'  '.mat'],'eating');
 save(['processed-data/Assign2/' num2str(user) '_not_eating'  '.mat'],'not_eating');
