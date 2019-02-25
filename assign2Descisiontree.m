@@ -9,9 +9,9 @@ end
 
 individual_users_ans_decision_tree = [];
 for k = 1:length(users)
+data = data.reconstructed_matrix_with_features;
 user = users(k);
 data = load (['processed-data/Assign2/PCA/' num2str(user) '_all'  '.mat']);
-data = data.reconstructed_matrix_with_features;
 
 index = randperm(size(data,1));
 divider = floor(length(data)*0.6);
