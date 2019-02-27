@@ -68,5 +68,5 @@ Recall=sum(recall)/size(confMat,1);
 
 F_score=2*Recall*Precision/(Precision+Recall);
 
-all_users_ans_svm = [Precision Recall F_score];
+all_users_ans_svm = [Precision Recall F_score]
  end
